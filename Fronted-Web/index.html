@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IoT Monitor - Monitoreo Ambiental</title>
+  <meta name="description" content="Sistema de monitoreo ambiental en tiempo real con IoT">
+  <meta name="theme-color" content="#0a0e17">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <button class="menu-toggle" id="menuToggle">
+        <i data-lucide="menu"></i>
+      </button>
+      <span class="navbar-title">IoT Monitor</span>
+    </div>
+    <div class="navbar-right">
+      <span class="status-indicator online" id="connectionStatus">
+        <i data-lucide="wifi"></i>
+        <span>Conectado</span>
+      </span>
+      <span class="navbar-time" id="currentTime"></span>
+    </div>
+  </nav>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <div class="logo-icon">
+          <i data-lucide="activity"></i>
+        </div>
+        <span>IoT Monitor</span>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#dashboard" class="nav-item active" data-route="dashboard">
+        <i data-lucide="layout-dashboard"></i>
+        <span>Tablero</span>
+      </a>
+      <a href="#map" class="nav-item" data-route="map">
+        <i data-lucide="map-pin"></i>
+        <span>Mapa</span>
+      </a>
+      <a href="#stations" class="nav-item" data-route="stations">
+        <i data-lucide="radio-tower"></i>
+        <span>Estaciones</span>
+      </a>
+      <a href="#history" class="nav-item" data-route="history">
+        <i data-lucide="clock"></i>
+        <span>Historial</span>
+      </a>
+      <a href="#alerts" class="nav-item" data-route="alerts">
+        <i data-lucide="bell"></i>
+        <span>Alertas</span>
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="station-badge" id="stationBadge">
+        <i data-lucide="radio"></i>
+        <span>ESP32-001</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content" id="mainContent">
+    <div class="view" id="view-dashboard"></div>
+    <div class="view hidden" id="view-map"></div>
+    <div class="view hidden" id="view-stations"></div>
+    <div class="view hidden" id="view-history"></div>
+    <div class="view hidden" id="view-alerts"></div>
+  </main>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="firebaseConfig.js"></script>
+  <script src="app.js"></script>
+  <script src="dashboard.js"></script>
+  <script src="map.js"></script>
+  <script src="stations.js"></script>
+  <script src="history.js"></script>
+  <script src="alerts.js"></script>
+</body>
+</html>
