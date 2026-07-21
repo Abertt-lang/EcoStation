@@ -50,7 +50,7 @@ void setColor(int r, int g, int b) {
 
 void setup() {
   Serial.begin(115200);
-  neogps.begin(9600, SERIAL_8N1, 16, 17);
+  neogps.begin(115200, SERIAL_8N1, 16, 17);
 
   // Iniciar sensores
   dht.begin();
@@ -104,7 +104,7 @@ void loop() {
   if (Firebase.ready() && WiFi.status() == WL_CONNECTED) {
     enviarDatosFirebase();
     Serial.println("Esperando 10 segundos...");
-    delay(10000); // 10 segundos para pruebas
+    delay(3000); // 10 segundos para pruebas
   }
 }
 
